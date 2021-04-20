@@ -32,5 +32,7 @@ public:
     void draw_text(const std::string text, Color color = Color::Black, int x = 0, int y = 0);
     void display_frame();
 
+    void shake(double strength);
+
     char input(); // Non-blocking getchar() basically
 };

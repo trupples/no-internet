@@ -152,6 +152,9 @@ int main()
         gameWindow.draw(hs);
         gameWindow.display_frame();
 
+        // Cinematic screen shake
+        gameWindow.shake(50);
+
         // And wait 5 seconds
         double death_screen_begin = Timer::now();
         while (Timer::now() - death_screen_begin < 5) {

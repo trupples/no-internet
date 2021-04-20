@@ -169,3 +169,20 @@ void GameWindow::set_title(const std::string title)
 {
     std::cout << "\033]2;" << title << "\x07" << std::flush;
 }
+
+void GameWindow::shake(double amount) {
+    const HWND wnd = GetConsoleWindow();
+
+    RECT r;
+    GetWindowRect(wnd, &r);
+    int x = r.left, y = r.top, w = r.right - r.left, h = r.bottom - r.top;
+    while (amount > 1) {
+        int A = amount / 2;
+        if (A > 0) {
+            MoveWindow(wnd, x + rand() % (2 * A) - A, y + rand() % (2 * A) - A, w, h, false);
+        }
+        Sleep(2);
+        amount *= .8;
+    }
+    MoveWindow(wnd, x, y, w, h, false);
+}
