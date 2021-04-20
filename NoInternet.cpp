@@ -8,6 +8,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <time.h> // just for srand(time(0))
 
 // Generates a sky and random ground texture data string
 std::string generate_background(int w)
@@ -70,6 +71,8 @@ void sync_high_score(int& high_score)
 
 int main()
 {
+    srand(time(0));
+
     GameWindow gameWindow;
     Sprite background(200, 50, generate_background(200));
     int high_score = 0;
