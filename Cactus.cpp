@@ -117,13 +117,13 @@ const Sprite cactus_sprites[5] = {
 Cactus::Cactus()
     : Sprite::Sprite(cactus_sprites[0])
     , variant(0)
-    , score(20)
+    , score(2)
 {
     pos.x = 25;
     pos.y = 24;
 }
 
-void Cactus::update(Player& player)
+void Cactus::update(Player& player) 
 {
     pos.x--;
     if (pos.x < -width) {
