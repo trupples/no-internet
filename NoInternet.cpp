@@ -163,6 +163,10 @@ int main()
         while (Timer::now() - death_screen_begin < 5) {
             Sleep(10);
         }
+
+        // Consume all input so keypresses that happened during the death scene don't trigger the start of the next game
+        while (gameWindow.input())
+            ;
     }
 
     return 0;
